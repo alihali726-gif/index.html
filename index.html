@@ -4,361 +4,533 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دليل المعتمر العراقي</title>
-    
-    <!-- Google Fonts: Cairo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Cairo', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: {
-                            50: '#ecfdf5',
-                            100: '#d1fae5',
-                            500: '#10b981',
-                            600: '#059669',
-                            800: '#065f46',
-                            900: '#064e3b',
-                        },
-                        gold: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        },
-                        darkblue: '#0f172a' /* اللون الأزرق الداكن المطلوب للهيدر */
-                    }
-                }
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #046b46;
+            --secondary-color: #d4af37;
+            --bg-color: #f0f4f8;
+            --text-color: #1e293b;
+            --header-bg: #0f172a;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* شريط الأخبار المتحرك (السبتايتل) */
+        .news-ticker {
+            background-color: var(--secondary-color);
+            color: var(--header-bg);
+            padding: 8px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            z-index: 100;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 2px solid #b8962e;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            animation: ticker-animation 30s linear infinite;
+        }
+
+        .ticker-text span {
+            margin: 0 40px;
+        }
+
+        @keyframes ticker-animation {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
             }
         }
-    </script>
-    
-    <style>
-        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-        body { -webkit-font-smoothing: antialiased; background-color: #f8fafc; }
-        .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+
+        /* الهيدر الرئيسي */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            /* نقش إسلامي خفيف جداً يضيف "روح" للتصميم */
+            background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 10% 20%, rgba(4, 107, 70, 0.05) 0%, transparent 30%);
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* شريط التنقل (Navbar) */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        /* حركة الخط الزمردي تحت الأزرار */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            right: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: var(--header-bg);
+            font-size: 1.8em;
+            font-weight: 800;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            position: relative;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* نظام الشبكة والبطاقات */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border: 1px solid #f1f5f9;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .card-header {
+            background-color: #f8fafc;
+            padding: 20px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .card-header.featured {
+            background-color: #f0fdf4;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .card-title {
+            margin: 0;
+            color: var(--header-bg);
+            font-size: 1.3em;
+            font-weight: 800;
+        }
+
+        .card-title.featured-title {
+            color: var(--primary-color);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .info-label {
+            min-width: 90px;
+            font-weight: 800;
+            color: #64748b;
+        }
+
+        .info-value {
+            color: var(--text-color);
+            flex: 1;
+        }
+
+        /* تنسيق الأرقام والروابط */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .phone-number {
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* قسم المتطلبات */
+        .req-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .req-item {
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-right: 4px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .req-price {
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: var(--header-bg);
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .sponsor-text {
+            color: white;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .sponsor-phone {
+            color: var(--secondary-color);
+            font-weight: 800;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            direction: ltr;
+            display: block;
+        }
+
+        .counter-box {
+            background-color: rgba(255,255,255,0.05);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 1.2em;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
     </style>
 </head>
-<body class="text-gray-800 font-sans selection:bg-gold-500 selection:text-white">
+<body>
 
-    <!-- Header: يحتوي فقط على العنوان بالخلفية الزرقاء الداكنة -->
-    <header class="bg-darkblue py-8 shadow-md">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                دليل المعتمر العراقي
-            </h1>
+    <!-- شريط الأخبار المتحرك -->
+    <div class="news-ticker">
+        <div class="ticker-text">
+            <span>إصدار تأشيرات العمرة بأسرع وقت وأفضل الأسعار</span> | 
+            <span>تنظيم رحلات وحجوزات الكروبات للشركات والمؤسسات</span> | 
+            <span>حجوزات طيران وفنادق لجميع الوجهات السياحية (تايلاند - شرم الشيخ وغيرها)</span> | 
+            <span>تأجير سيارات للمعتمرين براً بأسعار تنافسية</span> | 
+            <span>سكاي مريم: خياركم الأول للراحة والاطمئنان في السفر</span>
         </div>
+    </div>
+
+    <!-- الهيدر -->
+    <header>
+        <h1>دليل المعتمر العراقي</h1>
     </header>
 
-    <!-- Navigation Bar (Sticky) -->
-    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
-        <div class="container mx-auto px-4">
-            <ul class="flex overflow-x-auto py-3 space-x-6 space-x-reverse items-center whitespace-nowrap scrollbar-hide text-sm md:text-base font-bold text-gray-600 justify-start md:justify-center">
-                <li><a href="#visa" class="hover:text-primary-600 px-2 py-1 transition-colors">مصدري التأشيرات</a></li>
-                <li><a href="#drivers" class="hover:text-primary-600 px-2 py-1 transition-colors">سواق الخط</a></li>
-                <li><a href="#reqs" class="hover:text-primary-600 px-2 py-1 transition-colors">المتطلبات</a></li>
-                <li><a href="#hotels" class="hover:text-primary-600 px-2 py-1 transition-colors">فنادق</a></li>
-                <li><a href="#gas" class="hover:text-primary-600 px-2 py-1 transition-colors">محطات الوقود</a></li>
-                <li><a href="#services" class="hover:text-primary-600 px-2 py-1 transition-colors">خدمات أخرى</a></li>
-            </ul>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#visa" class="nav-link">مصدري التأشيرات</a>
+            <a href="#requirements" class="nav-link">المتطلبات</a>
+            <a href="#drivers" class="nav-link">سواق الخط</a>
+            <a href="#hotels" class="nav-link">فنادق</a>
+            <a href="#stations" class="nav-link">محطات الوقود</a>
+            <a href="#services" class="nav-link">خدمات أخرى</a>
         </div>
     </nav>
 
-    <!-- Visa Providers Section -->
-    <section id="visa" class="py-12 container mx-auto px-4">
-        <div class="border-b-2 border-gold-500 inline-block pb-2 mb-8">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">مصدري تأشيرات العمرة</h2>
+    <div class="container">
+        <!-- قسم مصدري التأشيرات -->
+        <h2 id="visa" class="section-title">مصدري تأشيرات العمرة</h2>
+        <div class="grid">
+            <!-- شركة سكاي مريم -->
+            <div class="card">
+                <div class="card-header featured">
+                    <h3 class="card-title featured-title">شركة سكاي مريم للسياحة والسفر</h3>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-label">العنوان:</span>
+                        <span class="info-value">أربيل - منارة - سوق اللنكة الجديد - عمارة E - محل 49</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">رقم الهاتف:</span>
+                        <span class="info-value"><a href="tel:+9647745557379" class="phone-number">+964 774 555 7379</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- شركة رحلة الضياء -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">شركة رحلة الضياء للسفر والسياحة</h3>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-label">العنوان:</span>
+                        <span class="info-value">بغداد - المنصور - محلات نادي الكرخ</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">رقم الهاتف:</span>
+                        <span class="info-value"><a href="tel:+9647866677991" class="phone-number">+964 786 667 7991</a></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="visa-list"></div>
         </div>
+
+        <!-- قسم المتطلبات -->
+        <h2 id="requirements" class="section-title">متطلبات الدخول البري للسعودية</h2>
+        <ul class="req-list" style="margin-bottom: 50px;">
+            <li class="req-item">
+                <span>تأمين للسيارة (يُدفع في الجانب السعودي)</span>
+            </li>
+            <li class="req-item">
+                <span>خروجية للسيارات العراقية (مغادرة)</span>
+                <span class="req-price">25,000 دينار</span>
+            </li>
+            <li class="req-item">
+                <span>خروجية للسيارات العراقية (إياب)</span>
+                <span class="req-price">25,000 دينار</span>
+            </li>
+            <li class="req-item">
+                <span>ضريبة هيئة الحج والعمرة (للبالغين)</span>
+                <span class="req-price">66,000 دينار</span>
+            </li>
+            <li class="req-item">
+                <span>ضريبة هيئة الحج والعمرة (أقل من 12 سنة)</span>
+                <span class="req-price">33,000 دينار</span>
+            </li>
+        </ul>
+
+        <!-- قسم سواق الخط -->
+        <h2 id="drivers" class="section-title">سائقي سيارات الخط (العراق - السعودية)</h2>
+        <div class="grid" id="drivers-list"></div>
+
+        <!-- قسم الفنادق -->
+        <h2 id="hotels" class="section-title">فنادق مكة والمدينة</h2>
+        <div class="grid" id="hotels-list"></div>
+
+        <!-- قسم محطات الوقود -->
+        <h2 id="stations" class="section-title">محطات الوقود على الطريق</h2>
+        <div class="grid" id="stations-list"></div>
+
+        <!-- قسم خدمات أخرى (تصليح وتمور) -->
+        <h2 id="services" class="section-title">خدمات عامة (تصليح سيارات وتمور)</h2>
+        <div class="grid" id="services-list"></div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="sponsor-text">برعاية شركة سكاي مريم للسياحة والسفر</div>
+        <div class="sponsor-phone">+964 774 555 7379</div>
+        <p>تم إعداد هذا الدليل لخدمة المعتمرين العراقيين | جميع الحقوق محفوظة</p>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="visa-container">
-            
-            <!-- Sky Maryam Card -->
-            <div class="bg-white rounded-xl p-6 border-r-4 border-gold-500 shadow-sm card-hover flex flex-col justify-between">
-                <div>
-                    <h3 class="text-xl font-bold text-primary-900 mb-4">شركة سكاي مريم للسياحة والسفر</h3>
-                    <div class="space-y-3 text-sm text-gray-700">
-                        <p class="flex items-start">
-                            <svg class="w-5 h-5 text-gray-400 ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <span>أربيل - منارة - سوق اللنكة الجديد - عمارة E - محل 49</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="mt-4 pt-4 border-t border-gray-100">
-                    <a href="tel:+9647745557379" class="flex items-center text-primary-600 font-bold hover:text-primary-800 transition-colors" dir="ltr">
-                        <svg class="w-5 h-5 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        +964 774 555 7379
-                    </a>
-                </div>
+        <!-- عداد الزوار -->
+        <div style="margin-top: 30px; border-top: 1px solid #1e293b; padding-top: 20px;">
+            <p style="margin-bottom: 5px; font-size: 0.9em; color: #64748b;">إحصائيات الزيارة</p>
+            <div class="counter-box">
+                عدد الزوار: <span id="visitor-count">142</span>
             </div>
-
-            <!-- Rehlat Al-Dhiyaa Card -->
-            <div class="bg-white rounded-xl p-6 border-r-4 border-gold-500 shadow-sm card-hover flex flex-col justify-between">
-                <div>
-                    <h3 class="text-xl font-bold text-primary-900 mb-4">شركة رحلة الضياء للسفر والسياحة</h3>
-                    <div class="space-y-3 text-sm text-gray-700">
-                        <p class="flex items-start">
-                            <svg class="w-5 h-5 text-gray-400 ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <span>بغداد - المنصور - محلات نادي الكرخ</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="mt-4 pt-4 border-t border-gray-100">
-                    <a href="tel:07866677991" class="flex items-center text-primary-600 font-bold hover:text-primary-800 transition-colors" dir="ltr">
-                        <svg class="w-5 h-5 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        0786 667 7991
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dynamic placeholders will be injected here by JS -->
-        </div>
-    </section>
-
-    <!-- Drivers Section -->
-    <section id="drivers" class="py-12 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="border-b-2 border-primary-600 inline-block pb-2 mb-8">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">سائقي الخط البري (العراق - السعودية)</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="drivers-container">
-                <!-- Dynamic placeholders will be injected here by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Requirements Section -->
-    <section id="reqs" class="py-12 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="bg-primary-900 rounded-2xl p-8 shadow-md text-white max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-extrabold mb-6 text-gold-400 border-b border-primary-700 pb-4">
-                    متطلبات الدخول البري إلى السعودية
-                </h2>
-                <ul class="space-y-4 text-base md:text-lg">
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        تأمين للسيارة بالجانب السعودي.
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        خروجية للسيارات العراقية (بالمغادرة): 25,000 دينار عراقي.
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        خروجية للسيارات العراقية (بالإياب): 25,000 دينار عراقي.
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        ضريبة هيئة الحج والعمرة للبالغ: 66,000 دينار عراقي.
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        ضريبة هيئة الحج والعمرة (أقل من 12 سنة): 33,000 دينار عراقي.
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hotels Section -->
-    <section id="hotels" class="py-12 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="border-b-2 border-gold-500 inline-block pb-2 mb-8">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">فنادق الإقامة</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="hotels-container">
-                <!-- Dynamic placeholders will be injected here by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Gas Stations Section -->
-    <section id="gas" class="py-12 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="border-b-2 border-primary-600 inline-block pb-2 mb-8">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">محطات الوقود (طريق السعودية)</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gas-container">
-                 <!-- Dynamic placeholders will be injected here by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Repair & Dates Section -->
-    <section id="services" class="py-12 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                
-                <!-- Repair Shops -->
-                <div>
-                    <div class="border-b-2 border-gold-500 inline-block pb-2 mb-8">
-                        <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">محلات تصليح السيارات</h2>
-                    </div>
-                    <div class="space-y-4" id="repair-container">
-                        <!-- Dynamic placeholders will be injected here by JS -->
-                    </div>
-                </div>
-
-                <!-- Date Shops -->
-                <div>
-                    <div class="border-b-2 border-primary-600 inline-block pb-2 mb-8">
-                        <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">محلات بيع التمور</h2>
-                    </div>
-                    <div class="space-y-4" id="dates-container">
-                        <!-- Dynamic placeholders will be injected here by JS -->
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-10 text-center relative border-t-4 border-primary-600">
-        <div class="container mx-auto px-4">
-            
-            <p class="text-gray-400 text-sm md:text-base font-semibold mb-6">
-                تم إعداد هذا الدليل لخدمة المعتمرين العراقيين | نسألكم الدعاء
-            </p>
-            
-            <!-- Sponsorship text (small font at the bottom) -->
-            <div class="inline-block bg-gray-800 rounded-lg px-6 py-3 border border-gray-700">
-                <p class="text-xs text-gray-300 font-bold tracking-wide leading-relaxed">
-                    برعاية: شركة سكاي مريم للسياحة والسفر<br>
-                    <span class="text-gold-400 mt-1 block font-mono">07745557379</span>
-                </p>
-            </div>
-
-            <div class="mt-8 flex flex-col items-center justify-center">
-                <span class="text-xs text-gray-500 mb-2 font-bold">إجمالي عدد الزيارات</span>
-                <a href="https://www.hitwebcounter.com" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity">
-                    <img src="https://hitwebcounter.com/counter/counter.php?page=17565313&style=0006&nbdigits=6&type=page&initCount=0" title="Free Counter" alt="web counter" border="0" class="rounded shadow-sm" />
-                </a>
-            </div>
-
-            <p class="text-xs text-gray-600 pt-6 mt-6 border-t border-gray-800">
-                جميع الحقوق محفوظة &copy; 2024
-            </p>
         </div>
     </footer>
 
-    <!-- JavaScript for Generating Placeholders -->
+    <!-- سكريبت لتوليد النماذج الفارغة -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Inject Visa Placeholders (Generating 8 items to make 10 total)
-            const visaContainer = document.getElementById('visa-container');
-            for(let i=3; i<=10; i++) {
-                visaContainer.innerHTML += `
-                <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-700 mb-4">شركة العمرة [${i}]</h3>
-                        <div class="space-y-3 text-sm text-gray-500">
-                            <p class="flex items-start">
-                                <svg class="w-4 h-4 text-gray-300 ml-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <span>[عنوان الشركة]</span>
-                            </p>
+        // دالة إنشاء بطاقة شركة تأشيرات
+        function createVisaCard(num) {
+            return `
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">نموذج شركة ${num}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-row">
+                            <span class="info-label">العنوان:</span>
+                            <span class="info-value"><a href="#" target="_blank">رابط خرائط جوجل</a></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">الهاتف:</span>
+                            <span class="info-value">07XXXXXXXXX</span>
                         </div>
                     </div>
-                </div>`;
-            }
+                </div>
+            `;
+        }
 
-            // 2. Inject Drivers (10 items)
-            const driversContainer = document.getElementById('drivers-container');
-            for(let i=1; i<=10; i++) {
-                driversContainer.innerHTML += `
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 card-hover">
-                    <div class="w-full h-40 bg-gray-100 flex items-center justify-center text-gray-400 border-b border-gray-200">
-                        <svg class="w-12 h-12 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+        // دالة إنشاء بطاقة سائق
+        function createDriverCard(num) {
+            return `
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">السائق ${num} (الاسم الثلاثي)</h3>
                     </div>
-                    <div class="p-5 space-y-2 text-sm">
-                        <h3 class="text-lg font-bold text-primary-900 border-b border-gray-100 pb-2 mb-3">
-                            اسم السائق الثلاثي [${i}]
-                        </h3>
-                        <p><span class="font-bold text-gray-500">النوع:</span> جي إم سي يوكن</p>
-                        <p><span class="font-bold text-gray-500">اللون:</span> أبيض</p>
-                        <p><span class="font-bold text-gray-500">الرقم:</span> 12345 بغداد</p>
-                        <p class="pt-2"><a href="tel:0700000000" class="text-primary-600 font-bold hover:underline flex items-center" dir="ltr"><svg class="w-4 h-4 mr-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> 0700 000 0000</a></p>
+                    <div class="card-body">
+                        <div style="width:100%; height:150px; background-color:#e2e8f0; border-radius:8px; margin-bottom:15px; display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:600;">صورة السيارة</div>
+                        <div class="info-row"><span class="info-label">السيارة:</span><span class="info-value">النوع - اللون</span></div>
+                        <div class="info-row"><span class="info-label">الرقم:</span><span class="info-value">12345 المحافظة</span></div>
+                        <div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value">07XXXXXXXXX</span></div>
                     </div>
-                </div>`;
-            }
+                </div>
+            `;
+        }
 
-            // 3. Inject Hotels (10 items)
-            const hotelsContainer = document.getElementById('hotels-container');
-            let starsSvg = '<div class="flex text-gold-500 mb-3">';
-            for(let j=0; j<4; j++) {
-                starsSvg += '<svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
-            }
-            starsSvg += '</div>';
-
-            for(let i=1; i<=10; i++) {
-                hotelsContainer.innerHTML += `
-                <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
-                    <h3 class="text-xl font-bold text-primary-900 mb-1">اسم الفندق [${i}]</h3>
-                    ${starsSvg}
-                    <div class="space-y-2 text-sm text-gray-700">
-                        <p class="flex items-start mb-2"><svg class="w-4 h-4 text-gray-400 ml-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>المنطقة المركزية، مكة</p>
-                        <p><span class="font-bold text-gray-500">الكراج:</span> مدفوع (50 ريال)</p>
-                        <div class="pt-3 mt-3 border-t border-gray-100">
-                            <p><a href="tel:+966000000" class="text-primary-600 font-bold hover:underline flex items-center" dir="ltr"><svg class="w-4 h-4 mr-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> +966 00 000 0000</a></p>
-                        </div>
+        // دالة إنشاء بطاقة فندق
+        function createHotelCard(num) {
+            // كود أيقونة النجمة بدون إيموجي
+            const starIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="var(--secondary-color)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+            return `
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">فندق نموذج ${num}</h3>
+                        <div style="margin-top:5px; display:flex; gap:2px;">${starIcon}${starIcon}${starIcon}${starIcon}</div>
                     </div>
-                </div>`;
-            }
-
-            // 4. Inject Gas Stations (10 items)
-            const gasContainer = document.getElementById('gas-container');
-            for(let i=1; i<=10; i++) {
-                gasContainer.innerHTML += `
-                <div class="bg-white rounded-xl p-6 border-r-4 border-primary-600 shadow-sm card-hover">
-                    <h3 class="text-lg font-bold text-primary-900 mb-3 flex items-center">
-                        <svg class="w-5 h-5 text-gray-400 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        محطة طريق السلام [${i}]
-                    </h3>
-                    <div class="space-y-2 text-sm text-gray-700">
-                        <p><span class="font-bold text-gray-500">الخدمات:</span> مسجد، سوبر ماركت، دورات مياه</p>
-                        <p><span class="font-bold text-gray-500">الوقود:</span> بنزين 91 / ديزل</p>
+                    <div class="card-body">
+                        <div class="info-row"><span class="info-label">العنوان:</span><span class="info-value"><a href="#">رابط خرائط جوجل</a></span></div>
+                        <div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value">00966XXXXXXX</span></div>
+                        <div class="info-row"><span class="info-label">المواقف:</span><span class="info-value">متوفر (مجاني/مأجور)</span></div>
+                        <div class="info-row" style="margin-top:10px; padding-top:10px; border-top:1px dashed #e2e8f0;"><span class="info-label">ملاحظات:</span><span class="info-value" style="font-size:0.85rem;">تفاصيل إضافية عن البعد عن الحرم.</span></div>
                     </div>
-                </div>`;
-            }
+                </div>
+            `;
+        }
 
-            // 5. Inject Repair Shops (5 items)
-            const repairContainer = document.getElementById('repair-container');
-            for(let i=1; i<=5; i++) {
-                repairContainer.innerHTML += `
-                <div class="bg-gray-50 rounded-lg p-5 border border-gray-200 shadow-sm flex justify-between items-center">
-                    <div>
-                        <h3 class="text-md font-bold text-primary-900 mb-1">ورشة صيانة وميكانيك [${i}]</h3>
-                        <p class="text-xs text-gray-500">خدمة طرق سريعة</p>
+        // دالة إنشاء بطاقة محطة
+        function createStationCard(num) {
+            return `
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">محطة وقود ${num}</h3></div>
+                    <div class="card-body">
+                        <div class="info-row"><span class="info-label">العنوان:</span><span class="info-value">موقع المحطة على الطريق</span></div>
+                        <div class="info-row"><span class="info-label">الوقود:</span><span class="info-value">بنزين / ديزل</span></div>
+                        <div class="info-row"><span class="info-label">الخدمات:</span><span class="info-value">مسجد، مطعم، بقالة</span></div>
                     </div>
-                    <a href="tel:0500000000" class="bg-primary-100 text-primary-700 p-2 rounded-full hover:bg-primary-200 transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                    </a>
-                </div>`;
-            }
+                </div>
+            `;
+        }
 
-            // 6. Inject Dates Shops (5 items)
-            const datesContainer = document.getElementById('dates-container');
-            for(let i=1; i<=5; i++) {
-                datesContainer.innerHTML += `
-                <div class="bg-amber-50 rounded-lg p-5 border border-amber-100 shadow-sm flex justify-between items-center">
-                    <div>
-                        <h3 class="text-md font-bold text-gold-600 mb-1">تمور وعجوة المدينة [${i}]</h3>
-                        <p class="text-xs text-gray-500">تجهيز هدايا المعتمرين</p>
+        // دالة إنشاء بطاقة خدمات (تصليح/تمور)
+        function createServiceCard(num, type) {
+            return `
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">${type} ${num}</h3></div>
+                    <div class="card-body">
+                        <div class="info-row"><span class="info-label">العنوان:</span><span class="info-value">وصف الموقع</span></div>
+                        <div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value">الرقم</span></div>
+                        <div class="info-row"><span class="info-label">ملاحظات:</span><span class="info-value">تفاصيل إضافية</span></div>
                     </div>
-                    <a href="tel:0500000000" class="bg-gold-100 text-gold-700 p-2 rounded-full hover:bg-gold-200 transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                    </a>
-                </div>`;
-            }
-        });
+                </div>
+            `;
+        }
+
+        // توليد النماذج وإضافتها للصفحة
+        document.getElementById('visa-list').innerHTML = Array.from({length: 8}, (_, i) => createVisaCard(i + 1)).join('');
+        document.getElementById('drivers-list').innerHTML = Array.from({length: 10}, (_, i) => createDriverCard(i + 1)).join('');
+        document.getElementById('hotels-list').innerHTML = Array.from({length: 4}, (_, i) => createHotelCard(i + 1)).join('');
+        document.getElementById('stations-list').innerHTML = Array.from({length: 4}, (_, i) => createStationCard(i + 1)).join('');
+        
+        let servicesHtml = Array.from({length: 3}, (_, i) => createServiceCard(i + 1, 'ورشة تصليح سيارات')).join('');
+        servicesHtml += Array.from({length: 3}, (_, i) => createServiceCard(i + 1, 'محل بيع تمور')).join('');
+        document.getElementById('services-list').innerHTML = servicesHtml;
+
+        // سكريبت العداد الوهمي البسيط (للعرض فقط)
+        let count = localStorage.getItem('site_visitors') || 142;
+        count = parseInt(count) + Math.floor(Math.random() * 3);
+        localStorage.setItem('site_visitors', count);
+        document.getElementById('visitor-count').innerText = count;
     </script>
 </body>
 </html>
