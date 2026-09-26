@@ -24,38 +24,6 @@
             line-height: 1.6;
         }
 
-        /* شريط الأخبار المتحرك (السبتايتل) */
-        .news-ticker {
-            background-color: var(--secondary-color);
-            color: var(--header-bg);
-            padding: 8px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            z-index: 100;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border-bottom: 2px solid #b8962e;
-        }
-
-        .ticker-text {
-            display: inline-block;
-            animation: ticker-animation 30s linear infinite;
-        }
-
-        .ticker-text span {
-            margin: 0 40px;
-        }
-
-        @keyframes ticker-animation {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
         /* الهيدر الرئيسي */
         header {
             background-color: var(--header-bg);
@@ -63,7 +31,6 @@
             text-align: center;
             padding: 60px 20px;
             position: relative;
-            /* نقش إسلامي خفيف جداً يضيف "روح" للتصميم */
             background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
                               radial-gradient(circle at 10% 20%, rgba(4, 107, 70, 0.05) 0%, transparent 30%);
             border-bottom: 4px solid var(--secondary-color);
@@ -107,7 +74,6 @@
             transition: color 0.3s ease;
         }
 
-        /* حركة الخط الزمردي تحت الأزرار */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -157,7 +123,119 @@
             border-radius: 2px;
         }
 
-        /* نظام الشبكة والبطاقات */
+        /* التصميم الجديد الاحترافي لبطاقات شركات التأشيرات */
+        .visa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .visa-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visa-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
+        }
+
+        .visa-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .visa-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 15px;
+        }
+
+        .typographic-logo {
+            width: 60px;
+            height: 60px;
+            background-color: var(--header-bg);
+            color: var(--secondary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .visa-title {
+            margin: 0;
+            color: var(--header-bg);
+            font-size: 1.2rem;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .visa-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .visa-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        .visa-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-color);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .call-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 800;
+            margin-top: auto;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+
+        .call-btn:hover {
+            background-color: #035235;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* نظام البطاقات العادية لباقي الأقسام */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -171,12 +249,11 @@
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.03);
             border: 1px solid #f1f5f9;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 
         .card-header {
@@ -185,20 +262,11 @@
             border-bottom: 1px solid #f1f5f9;
         }
 
-        .card-header.featured {
-            background-color: #f0fdf4;
-            border-bottom: 2px solid var(--primary-color);
-        }
-
         .card-title {
             margin: 0;
             color: var(--header-bg);
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-weight: 800;
-        }
-
-        .card-title.featured-title {
-            color: var(--primary-color);
         }
 
         .card-body {
@@ -222,7 +290,6 @@
             flex: 1;
         }
 
-        /* تنسيق الأرقام والروابط */
         a {
             color: var(--primary-color);
             text-decoration: none;
@@ -303,17 +370,6 @@
 </head>
 <body>
 
-    <!-- شريط الأخبار المتحرك -->
-    <div class="news-ticker">
-        <div class="ticker-text">
-            <span>إصدار تأشيرات العمرة بأسرع وقت وأفضل الأسعار</span> | 
-            <span>تنظيم رحلات وحجوزات الكروبات للشركات والمؤسسات</span> | 
-            <span>حجوزات طيران وفنادق لجميع الوجهات السياحية (تايلاند - شرم الشيخ وغيرها)</span> | 
-            <span>تأجير سيارات للمعتمرين براً بأسعار تنافسية</span> | 
-            <span>سكاي مريم: خياركم الأول للراحة والاطمئنان في السفر</span>
-        </div>
-    </div>
-
     <!-- الهيدر -->
     <header>
         <h1>دليل المعتمر العراقي</h1>
@@ -332,44 +388,54 @@
     </nav>
 
     <div class="container">
-        <!-- قسم مصدري التأشيرات -->
+        <!-- قسم مصدري التأشيرات (التصميم الجديد) -->
         <h2 id="visa" class="section-title">مصدري تأشيرات العمرة</h2>
-        <div class="grid">
+        <div class="visa-grid">
+            
             <!-- شركة سكاي مريم -->
-            <div class="card">
-                <div class="card-header featured">
-                    <h3 class="card-title featured-title">شركة سكاي مريم للسياحة والسفر</h3>
+            <div class="visa-card">
+                <div class="visa-header">
+                    <div class="typographic-logo">سكاي</div>
+                    <h3 class="visa-title">شركة سكاي مريم للسياحة والسفر</h3>
                 </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">العنوان:</span>
-                        <span class="info-value">أربيل - منارة - سوق اللنكة الجديد - عمارة E - محل 49</span>
+                <div class="visa-details">
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>أربيل - منارة - سوق اللنكة الجديد - عمارة E - محل 49</span>
                     </div>
-                    <div class="info-row">
-                        <span class="info-label">رقم الهاتف:</span>
-                        <span class="info-value"><a href="tel:+9647745557379" class="phone-number">+964 774 555 7379</a></span>
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span class="phone-number">+964 774 555 7379</span>
                     </div>
                 </div>
+                <a href="tel:+9647745557379" class="call-btn">
+                    اتصال الآن
+                </a>
             </div>
 
             <!-- شركة رحلة الضياء -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">شركة رحلة الضياء للسفر والسياحة</h3>
+            <div class="visa-card">
+                <div class="visa-header">
+                    <div class="typographic-logo">ضياء</div>
+                    <h3 class="visa-title">شركة رحلة الضياء للسفر والسياحة</h3>
                 </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">العنوان:</span>
-                        <span class="info-value">بغداد - المنصور - محلات نادي الكرخ</span>
+                <div class="visa-details">
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>بغداد - المنصور - محلات نادي الكرخ</span>
                     </div>
-                    <div class="info-row">
-                        <span class="info-label">رقم الهاتف:</span>
-                        <span class="info-value"><a href="tel:+9647866677991" class="phone-number">+964 786 667 7991</a></span>
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span class="phone-number">+964 786 667 7991</span>
                     </div>
                 </div>
+                <a href="tel:+9647866677991" class="call-btn">
+                    اتصال الآن
+                </a>
             </div>
             
-            <div id="visa-list"></div>
+            <!-- النماذج التي سيتم توليدها برمجياً ستظهر هنا -->
+            <div id="visa-list" style="display: contents;"></div>
         </div>
 
         <!-- قسم المتطلبات -->
@@ -428,36 +494,34 @@
         </div>
     </footer>
 
-    <!-- سكريبت لتوليد النماذج الفارغة -->
     <script>
-        // دالة إنشاء بطاقة شركة تأشيرات
+        // دالة إنشاء بطاقة شركة تأشيرات بالتصميم الجديد
         function createVisaCard(num) {
             return `
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">نموذج شركة ${num}</h3>
+                <div class="visa-card">
+                    <div class="visa-header">
+                        <div class="typographic-logo">شعار</div>
+                        <h3 class="visa-title">نموذج شركة ${num}</h3>
                     </div>
-                    <div class="card-body">
-                        <div class="info-row">
-                            <span class="info-label">العنوان:</span>
-                            <span class="info-value"><a href="#" target="_blank">رابط خرائط جوجل</a></span>
+                    <div class="visa-details">
+                        <div class="visa-info-item">
+                            <svg class="visa-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <span>عنوان الشركة أو موقعها</span>
                         </div>
-                        <div class="info-row">
-                            <span class="info-label">الهاتف:</span>
-                            <span class="info-value">07XXXXXXXXX</span>
+                        <div class="visa-info-item">
+                            <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <span class="phone-number">07XXXXXXXXX</span>
                         </div>
                     </div>
+                    <a href="#" class="call-btn">اتصال الآن</a>
                 </div>
             `;
         }
 
-        // دالة إنشاء بطاقة سائق
         function createDriverCard(num) {
             return `
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">السائق ${num} (الاسم الثلاثي)</h3>
-                    </div>
+                    <div class="card-header"><h3 class="card-title">السائق ${num} (الاسم الثلاثي)</h3></div>
                     <div class="card-body">
                         <div style="width:100%; height:150px; background-color:#e2e8f0; border-radius:8px; margin-bottom:15px; display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:600;">صورة السيارة</div>
                         <div class="info-row"><span class="info-label">السيارة:</span><span class="info-value">النوع - اللون</span></div>
@@ -468,9 +532,7 @@
             `;
         }
 
-        // دالة إنشاء بطاقة فندق
         function createHotelCard(num) {
-            // كود أيقونة النجمة بدون إيموجي
             const starIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="var(--secondary-color)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
             return `
                 <div class="card">
@@ -488,7 +550,6 @@
             `;
         }
 
-        // دالة إنشاء بطاقة محطة
         function createStationCard(num) {
             return `
                 <div class="card">
@@ -502,7 +563,6 @@
             `;
         }
 
-        // دالة إنشاء بطاقة خدمات (تصليح/تمور)
         function createServiceCard(num, type) {
             return `
                 <div class="card">
@@ -516,7 +576,7 @@
             `;
         }
 
-        // توليد النماذج وإضافتها للصفحة
+        // توليد النماذج
         document.getElementById('visa-list').innerHTML = Array.from({length: 8}, (_, i) => createVisaCard(i + 1)).join('');
         document.getElementById('drivers-list').innerHTML = Array.from({length: 10}, (_, i) => createDriverCard(i + 1)).join('');
         document.getElementById('hotels-list').innerHTML = Array.from({length: 4}, (_, i) => createHotelCard(i + 1)).join('');
@@ -526,7 +586,7 @@
         servicesHtml += Array.from({length: 3}, (_, i) => createServiceCard(i + 1, 'محل بيع تمور')).join('');
         document.getElementById('services-list').innerHTML = servicesHtml;
 
-        // سكريبت العداد الوهمي البسيط (للعرض فقط)
+        // العداد
         let count = localStorage.getItem('site_visitors') || 142;
         count = parseInt(count) + Math.floor(Math.random() * 3);
         localStorage.setItem('site_visitors', count);
