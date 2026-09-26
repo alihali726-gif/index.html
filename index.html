@@ -123,7 +123,7 @@
             border-radius: 2px;
         }
 
-        /* التصميم الجديد الاحترافي لبطاقات شركات التأشيرات */
+        /* التصميم النظيف لبطاقات شركات التأشيرات */
         .visa-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -162,31 +162,14 @@
         }
 
         .visa-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
             border-bottom: 1px solid #f1f5f9;
             padding-bottom: 15px;
-        }
-
-        .typographic-logo {
-            width: 60px;
-            height: 60px;
-            background-color: var(--header-bg);
-            color: var(--secondary-color);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            font-weight: 800;
-            flex-shrink: 0;
         }
 
         .visa-title {
             margin: 0;
             color: var(--header-bg);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 800;
             line-height: 1.4;
         }
@@ -194,45 +177,24 @@
         .visa-details {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
 
         .visa-info-item {
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-color);
+            font-weight: 600;
         }
 
         .visa-icon {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             fill: var(--primary-color);
             flex-shrink: 0;
             margin-top: 2px;
-        }
-
-        .call-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 800;
-            margin-top: auto;
-            transition: background-color 0.3s;
-            font-size: 1rem;
-        }
-
-        .call-btn:hover {
-            background-color: #035235;
-            text-decoration: none;
-            color: white;
         }
 
         /* نظام البطاقات العادية لباقي الأقسام */
@@ -388,15 +350,14 @@
     </nav>
 
     <div class="container">
-        <!-- قسم مصدري التأشيرات (التصميم الجديد) -->
+        <!-- قسم مصدري التأشيرات (التصميم النظيف) -->
         <h2 id="visa" class="section-title">مصدري تأشيرات العمرة</h2>
         <div class="visa-grid">
             
             <!-- شركة سكاي مريم -->
             <div class="visa-card">
                 <div class="visa-header">
-                    <div class="typographic-logo">سكاي</div>
-                    <h3 class="visa-title">شركة سكاي مريم للسياحة والسفر</h3>
+                    <h3 class="visa-title">شركة سكاي مريم للسفر والسياحة</h3>
                 </div>
                 <div class="visa-details">
                     <div class="visa-info-item">
@@ -405,18 +366,14 @@
                     </div>
                     <div class="visa-info-item">
                         <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        <span class="phone-number">+964 774 555 7379</span>
+                        <span class="phone-number"><a href="tel:+9647745557379" style="color: inherit; text-decoration: none;">+964 774 555 7379</a></span>
                     </div>
                 </div>
-                <a href="tel:+9647745557379" class="call-btn">
-                    اتصال الآن
-                </a>
             </div>
 
             <!-- شركة رحلة الضياء -->
             <div class="visa-card">
                 <div class="visa-header">
-                    <div class="typographic-logo">ضياء</div>
                     <h3 class="visa-title">شركة رحلة الضياء للسفر والسياحة</h3>
                 </div>
                 <div class="visa-details">
@@ -426,15 +383,11 @@
                     </div>
                     <div class="visa-info-item">
                         <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        <span class="phone-number">+964 786 667 7991</span>
+                        <span class="phone-number"><a href="tel:+9647866677991" style="color: inherit; text-decoration: none;">+964 786 667 7991</a></span>
                     </div>
                 </div>
-                <a href="tel:+9647866677991" class="call-btn">
-                    اتصال الآن
-                </a>
             </div>
             
-            <!-- النماذج التي سيتم توليدها برمجياً ستظهر هنا -->
             <div id="visa-list" style="display: contents;"></div>
         </div>
 
@@ -481,7 +434,7 @@
 
     <!-- الفوتر -->
     <footer>
-        <div class="sponsor-text">برعاية شركة سكاي مريم للسياحة والسفر</div>
+        <div class="sponsor-text">برعاية شركة سكاي مريم للسفر والسياحة</div>
         <div class="sponsor-phone">+964 774 555 7379</div>
         <p>تم إعداد هذا الدليل لخدمة المعتمرين العراقيين | جميع الحقوق محفوظة</p>
         
@@ -495,12 +448,11 @@
     </footer>
 
     <script>
-        // دالة إنشاء بطاقة شركة تأشيرات بالتصميم الجديد
+        // دالة إنشاء بطاقة شركة تأشيرات بدون زر الاتصال أو الشعار
         function createVisaCard(num) {
             return `
                 <div class="visa-card">
                     <div class="visa-header">
-                        <div class="typographic-logo">شعار</div>
                         <h3 class="visa-title">نموذج شركة ${num}</h3>
                     </div>
                     <div class="visa-details">
@@ -513,7 +465,6 @@
                             <span class="phone-number">07XXXXXXXXX</span>
                         </div>
                     </div>
-                    <a href="#" class="call-btn">اتصال الآن</a>
                 </div>
             `;
         }
