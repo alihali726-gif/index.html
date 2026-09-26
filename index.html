@@ -23,249 +23,196 @@
                         primary: {
                             50: '#ecfdf5',
                             100: '#d1fae5',
-                            500: '#10b981', // Emerald
+                            500: '#10b981',
                             600: '#059669',
                             800: '#065f46',
-                            900: '#064e3b', // Deep Islamic Green
+                            900: '#064e3b',
                         },
                         gold: {
                             400: '#fbbf24',
-                            500: '#f59e0b', // Amber/Gold
+                            500: '#f59e0b',
                             600: '#d97706',
-                        }
+                        },
+                        darkblue: '#0f172a' /* اللون الأزرق الداكن المطلوب للهيدر */
                     }
                 }
             }
         }
     </script>
+    
     <style>
-        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
         body { -webkit-font-smoothing: antialiased; background-color: #f8fafc; }
-        .hero-bg { background: linear-gradient(135deg, #064e3b 0%, #059669 100%); }
         .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
         .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
 <body class="text-gray-800 font-sans selection:bg-gold-500 selection:text-white">
 
-    <!-- Navbar -->
-    <header class="fixed w-full top-0 z-50 bg-white shadow-md border-b border-gray-100">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center justify-between py-3">
-                <div class="flex-shrink-0 mb-3 md:mb-0">
-                    <a href="#" class="text-2xl font-extrabold tracking-tight text-primary-900">
-                        دليل المعتمر <span class="text-gold-500">العراقي</span>
-                    </a>
-                </div>
-                
-                <nav class="w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
-                    <ul class="flex space-x-4 space-x-reverse items-center min-w-max">
-                        <li><a href="#visa" class="text-sm font-bold text-gray-600 hover:text-primary-600 px-2 py-1">تأشيرات</a></li>
-                        <li><a href="#drivers" class="text-sm font-bold text-gray-600 hover:text-primary-600 px-2 py-1">سواق الخط</a></li>
-                        <li><a href="#hotels" class="text-sm font-bold text-gray-600 hover:text-primary-600 px-2 py-1">فنادق</a></li>
-                        <li><a href="#gas" class="text-sm font-bold text-gray-600 hover:text-primary-600 px-2 py-1">محطات وقود</a></li>
-                        <li><a href="#repair" class="text-sm font-bold text-gray-600 hover:text-primary-600 px-2 py-1">صيانة سيارات</a></li>
-                        <li><a href="#dates" class="text-sm font-bold text-gray-600 hover:text-primary-600 px-2 py-1">تمور</a></li>
-                        <li><a href="#reqs" class="text-sm font-bold text-white bg-primary-600 hover:bg-primary-800 px-4 py-2 rounded-lg">متطلبات الدخول</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <!-- Header: يحتوي فقط على العنوان بالخلفية الزرقاء الداكنة -->
+    <header class="bg-darkblue py-8 shadow-md">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                دليل المعتمر العراقي
+            </h1>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="mt-24 py-16 hero-bg text-center px-4">
-        <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4">مرجعك الشامل لرحلة العمرة البرية</h1>
-        <p class="text-lg text-primary-100 max-w-2xl mx-auto">كل ما تحتاجه من خدمات، أرقام، وعناوين لضمان رحلة ميسرة من العراق إلى الديار المقدسة.</p>
-    </section>
+    <!-- Navigation Bar (Sticky) -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <ul class="flex overflow-x-auto py-3 space-x-6 space-x-reverse items-center whitespace-nowrap scrollbar-hide text-sm md:text-base font-bold text-gray-600 justify-start md:justify-center">
+                <li><a href="#visa" class="hover:text-primary-600 px-2 py-1 transition-colors">مصدري التأشيرات</a></li>
+                <li><a href="#drivers" class="hover:text-primary-600 px-2 py-1 transition-colors">سواق الخط</a></li>
+                <li><a href="#reqs" class="hover:text-primary-600 px-2 py-1 transition-colors">المتطلبات</a></li>
+                <li><a href="#hotels" class="hover:text-primary-600 px-2 py-1 transition-colors">فنادق</a></li>
+                <li><a href="#gas" class="hover:text-primary-600 px-2 py-1 transition-colors">محطات الوقود</a></li>
+                <li><a href="#services" class="hover:text-primary-600 px-2 py-1 transition-colors">خدمات أخرى</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- Visa Section -->
-    <section id="visa" class="py-16 container mx-auto px-4">
+    <!-- Visa Providers Section -->
+    <section id="visa" class="py-12 container mx-auto px-4">
         <div class="border-b-2 border-gold-500 inline-block pb-2 mb-8">
             <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">مصدري تأشيرات العمرة</h2>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="visa-container">
+            
             <!-- Sky Maryam Card -->
-            <div class="bg-white rounded-xl p-6 border-r-4 border-gold-500 shadow-sm card-hover">
-                <h3 class="text-xl font-bold text-primary-900 mb-3">شركة سكاي مريم للسياحة والسفر</h3>
-                <div class="space-y-2 text-sm">
-                    <p><span class="font-bold text-gray-500">العنوان:</span> أربيل منارة سوق اللنكة الجديد عمارة e محل 49</p>
-                    <p><span class="font-bold text-gray-500">الهاتف:</span> <a href="tel:+9647745557379" class="text-primary-600 font-bold hover:underline" dir="ltr">+964 774 555 7379</a></p>
-                    <a href="https://maps.google.com/?q=أربيل+منارة+سوق+اللنكة+الجديد" target="_blank" class="inline-block mt-3 text-gold-600 font-bold hover:text-gold-800">عرض على الخريطة</a>
+            <div class="bg-white rounded-xl p-6 border-r-4 border-gold-500 shadow-sm card-hover flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-900 mb-4">شركة سكاي مريم للسياحة والسفر</h3>
+                    <div class="space-y-3 text-sm text-gray-700">
+                        <p class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>أربيل - منارة - سوق اللنكة الجديد - عمارة E - محل 49</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <a href="tel:+9647745557379" class="flex items-center text-primary-600 font-bold hover:text-primary-800 transition-colors" dir="ltr">
+                        <svg class="w-5 h-5 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        +964 774 555 7379
+                    </a>
                 </div>
             </div>
 
-            <!-- Loop 9 Placeholders for Visa -->
-            <script>
-                for(let i=2; i<=10; i++) {
-                    document.write(`
-                    <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
-                        <h3 class="text-xl font-bold text-primary-900 mb-3">شركة العمرة الميسرة [${i}]</h3>
-                        <div class="space-y-2 text-sm">
-                            <p><span class="font-bold text-gray-500">العنوان:</span> [عنوان الشركة ${i}]</p>
-                            <p><span class="font-bold text-gray-500">الهاتف:</span> <a href="tel:0700000000" class="text-primary-600 font-bold hover:underline" dir="ltr">0700 000 0000</a></p>
-                            <a href="https://maps.google.com/?q=موقع+الشركة" target="_blank" class="inline-block mt-3 text-gold-600 font-bold hover:text-gold-800">عرض على الخريطة</a>
-                        </div>
+            <!-- Rehlat Al-Dhiyaa Card -->
+            <div class="bg-white rounded-xl p-6 border-r-4 border-gold-500 shadow-sm card-hover flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-900 mb-4">شركة رحلة الضياء للسفر والسياحة</h3>
+                    <div class="space-y-3 text-sm text-gray-700">
+                        <p class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>بغداد - المنصور - محلات نادي الكرخ</span>
+                        </p>
                     </div>
-                    `);
-                }
-            </script>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <a href="tel:07866677991" class="flex items-center text-primary-600 font-bold hover:text-primary-800 transition-colors" dir="ltr">
+                        <svg class="w-5 h-5 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        0786 667 7991
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dynamic placeholders will be injected here by JS -->
         </div>
     </section>
 
     <!-- Drivers Section -->
-    <section id="drivers" class="py-16 bg-gray-100">
+    <section id="drivers" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="border-b-2 border-primary-600 inline-block pb-2 mb-8">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">سائقي الخط البري</h2>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">سائقي الخط البري (العراق - السعودية)</h2>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Loop 10 Placeholders for Drivers -->
-                <script>
-                    for(let i=1; i<=10; i++) {
-                        document.write(`
-                        <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 card-hover">
-                            <img src="https://placehold.co/600x300/e2e8f0/64748b?text=صورة+السيارة" alt="سيارة" class="w-full h-48 object-cover">
-                            <div class="p-5 space-y-2 text-sm">
-                                <h3 class="text-lg font-bold text-primary-900 border-b pb-2 mb-2">اسم السائق الثلاثي [${i}]</h3>
-                                <p><span class="font-bold text-gray-500">نوع السيارة:</span> جي إم سي يوكن</p>
-                                <p><span class="font-bold text-gray-500">اللون:</span> أبيض</p>
-                                <p><span class="font-bold text-gray-500">رقم السيارة:</span> 12345 بغداد</p>
-                                <p><span class="font-bold text-gray-500">الهاتف:</span> <a href="tel:0700000000" class="text-primary-600 font-bold hover:underline" dir="ltr">0700 000 0000</a></p>
-                            </div>
-                        </div>
-                        `);
-                    }
-                </script>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="drivers-container">
+                <!-- Dynamic placeholders will be injected here by JS -->
             </div>
         </div>
     </section>
 
     <!-- Requirements Section -->
-    <section id="reqs" class="py-16 container mx-auto px-4">
-        <div class="bg-primary-900 rounded-2xl p-8 md:p-12 shadow-lg text-white">
-            <h2 class="text-2xl md:text-3xl font-extrabold mb-6 text-gold-400">متطلبات الدخول للسعودية (بري)</h2>
-            <ul class="space-y-4 text-lg">
-                <li class="flex items-center"><span class="w-2 h-2 bg-gold-500 rounded-full ml-3"></span> تأمين للسيارة بالجانب السعودي.</li>
-                <li class="flex items-center"><span class="w-2 h-2 bg-gold-500 rounded-full ml-3"></span> خروجية للسيارات العراقية (بالمغادرة): 25,000 دينار عراقي.</li>
-                <li class="flex items-center"><span class="w-2 h-2 bg-gold-500 rounded-full ml-3"></span> خروجية للسيارات العراقية (بالإياب): 25,000 دينار عراقي.</li>
-                <li class="flex items-center"><span class="w-2 h-2 bg-gold-500 rounded-full ml-3"></span> ضريبة هيئة الحج والعمرة للبالغ: 66,000 دينار عراقي.</li>
-                <li class="flex items-center"><span class="w-2 h-2 bg-gold-500 rounded-full ml-3"></span> ضريبة هيئة الحج والعمرة (أقل من 12 سنة): 33,000 دينار عراقي.</li>
-            </ul>
+    <section id="reqs" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-primary-900 rounded-2xl p-8 shadow-md text-white max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-6 text-gold-400 border-b border-primary-700 pb-4">
+                    متطلبات الدخول البري إلى السعودية
+                </h2>
+                <ul class="space-y-4 text-base md:text-lg">
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        تأمين للسيارة بالجانب السعودي.
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        خروجية للسيارات العراقية (بالمغادرة): 25,000 دينار عراقي.
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        خروجية للسيارات العراقية (بالإياب): 25,000 دينار عراقي.
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        ضريبة هيئة الحج والعمرة للبالغ: 66,000 دينار عراقي.
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 text-gold-500 ml-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        ضريبة هيئة الحج والعمرة (أقل من 12 سنة): 33,000 دينار عراقي.
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <!-- Hotels Section -->
-    <section id="hotels" class="py-16 bg-gray-100">
+    <section id="hotels" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="border-b-2 border-gold-500 inline-block pb-2 mb-8">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">فنادق الإقامة</h2>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Loop 10 Placeholders for Hotels -->
-                <script>
-                    for(let i=1; i<=10; i++) {
-                        // Creating SVG stars
-                        let stars = '<div class="flex text-gold-500 mb-2">';
-                        for(let j=0; j<4; j++) {
-                            stars += '<svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
-                        }
-                        stars += '<span class="text-xs text-gray-500 mr-2">(4 نجوم)</span></div>';
-
-                        document.write(`
-                        <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
-                            <h3 class="text-xl font-bold text-primary-900 mb-1">اسم الفندق [${i}]</h3>
-                            ${stars}
-                            <div class="space-y-2 text-sm mt-4">
-                                <p><span class="font-bold text-gray-500">العنوان:</span> المنطقة المركزية، مكة المكرمة</p>
-                                <p><span class="font-bold text-gray-500">الهاتف:</span> <a href="tel:+966000000" class="text-primary-600 font-bold hover:underline" dir="ltr">+966 00 000 0000</a></p>
-                                <p><span class="font-bold text-gray-500">موقف السيارات (كراج):</span> مدفوع (50 ريال/يوم)</p>
-                                <p><span class="font-bold text-gray-500">ملاحظات:</span> يبعد 500 متر عن الحرم المكي.</p>
-                                <a href="https://maps.google.com/?q=موقع+الفندق" target="_blank" class="inline-block mt-3 text-gold-600 font-bold hover:text-gold-800 border border-gold-500 px-3 py-1 rounded">عرض على الخريطة</a>
-                            </div>
-                        </div>
-                        `);
-                    }
-                </script>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="hotels-container">
+                <!-- Dynamic placeholders will be injected here by JS -->
             </div>
         </div>
     </section>
 
     <!-- Gas Stations Section -->
-    <section id="gas" class="py-16 container mx-auto px-4">
-        <div class="border-b-2 border-primary-600 inline-block pb-2 mb-8">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">محطات الوقود (طريق السعودية)</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Loop 10 Placeholders for Gas Stations -->
-            <script>
-                for(let i=1; i<=10; i++) {
-                    document.write(`
-                    <div class="bg-primary-50 rounded-xl p-6 border border-primary-100 shadow-sm card-hover">
-                        <h3 class="text-xl font-bold text-primary-900 mb-3">محطة طريق السلام [${i}]</h3>
-                        <div class="space-y-2 text-sm">
-                            <p><span class="font-bold text-gray-500">العنوان:</span> طريق مكة السريع، الكيلو 50</p>
-                            <p><span class="font-bold text-gray-500">الخدمات:</span> مسجد، سوبر ماركت، مطعم، دورات مياه</p>
-                            <p><span class="font-bold text-gray-500">نوع الوقود:</span> بنزين 91 و 95 / ديزل</p>
-                            <p><span class="font-bold text-gray-500">سعر اللتر التقريبي:</span> 2.18 ريال (بنزين 91)</p>
-                            <a href="https://maps.google.com/?q=محطة+وقود" target="_blank" class="inline-block mt-2 text-primary-600 font-bold hover:text-primary-800">موقع المحطة</a>
-                        </div>
-                    </div>
-                    `);
-                }
-            </script>
+    <section id="gas" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="border-b-2 border-primary-600 inline-block pb-2 mb-8">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">محطات الوقود (طريق السعودية)</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gas-container">
+                 <!-- Dynamic placeholders will be injected here by JS -->
+            </div>
         </div>
     </section>
 
-    <!-- Maintenance and Dates Section -->
-    <section class="py-16 bg-gray-100">
+    <!-- Repair & Dates Section -->
+    <section id="services" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 
                 <!-- Repair Shops -->
-                <div id="repair">
+                <div>
                     <div class="border-b-2 border-gold-500 inline-block pb-2 mb-8">
                         <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">محلات تصليح السيارات</h2>
                     </div>
-                    <div class="space-y-4">
-                        <script>
-                            for(let i=1; i<=5; i++) {
-                                document.write(`
-                                <div class="bg-white rounded-lg p-5 border-r-4 border-gray-400 shadow-sm">
-                                    <h3 class="text-lg font-bold text-primary-900 mb-2">ورشة الأمانة لصيانة السيارات [${i}]</h3>
-                                    <p class="text-sm"><span class="font-bold text-gray-500">العنوان:</span> الصناعية، المدينة المنورة</p>
-                                    <p class="text-sm"><span class="font-bold text-gray-500">الخدمات:</span> ميكانيك، كهرباء، تبديل زيوت وإطارات</p>
-                                    <p class="text-sm"><span class="font-bold text-gray-500">ملاحظات:</span> خدمة طوارئ على الطرق السريعة.</p>
-                                    <p class="text-sm mt-2"><span class="font-bold text-gray-500">الهاتف:</span> <a href="tel:0500000000" class="text-primary-600 font-bold" dir="ltr">0500 000 0000</a></p>
-                                </div>
-                                `);
-                            }
-                        </script>
+                    <div class="space-y-4" id="repair-container">
+                        <!-- Dynamic placeholders will be injected here by JS -->
                     </div>
                 </div>
 
                 <!-- Date Shops -->
-                <div id="dates">
+                <div>
                     <div class="border-b-2 border-primary-600 inline-block pb-2 mb-8">
                         <h2 class="text-2xl md:text-3xl font-extrabold text-primary-900">محلات بيع التمور</h2>
                     </div>
-                    <div class="space-y-4">
-                        <script>
-                            for(let i=1; i<=5; i++) {
-                                document.write(`
-                                <div class="bg-white rounded-lg p-5 border-r-4 border-gold-500 shadow-sm">
-                                    <h3 class="text-lg font-bold text-primary-900 mb-2">تمور بركة المدينة [${i}]</h3>
-                                    <p class="text-sm"><span class="font-bold text-gray-500">العنوان:</span> سوق التمور المركزي، المدينة المنورة</p>
-                                    <p class="text-sm mt-2"><span class="font-bold text-gray-500">الهاتف:</span> <a href="tel:0500000000" class="text-primary-600 font-bold" dir="ltr">0500 000 0000</a></p>
-                                    <a href="https://maps.google.com/?q=سوق+التمور" target="_blank" class="text-xs text-gold-600 font-bold mt-1 inline-block">خرائط جوجل</a>
-                                </div>
-                                `);
-                            }
-                        </script>
+                    <div class="space-y-4" id="dates-container">
+                        <!-- Dynamic placeholders will be injected here by JS -->
                     </div>
                 </div>
 
@@ -274,23 +221,144 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+    <footer class="bg-gray-900 py-10 text-center relative border-t-4 border-primary-600">
         <div class="container mx-auto px-4">
-            <h3 class="text-xl font-bold text-white mb-2">دليل المعتمر العراقي</h3>
-            <p class="text-sm mb-4">برعاية شركة سكاي مريم للسياحة والسفر</p>
             
-            <!-- Visitor Counter -->
-            <div class="mt-6 mb-4 flex flex-col items-center justify-center">
-                <span class="text-sm text-gray-400 mb-2 font-bold">إجمالي عدد الزيارات:</span>
-                <!-- HitWebCounter Code -->
-                <a href="https://www.hitwebcounter.com" target="_blank">
+            <p class="text-gray-400 text-sm md:text-base font-semibold mb-6">
+                تم إعداد هذا الدليل لخدمة المعتمرين العراقيين | نسألكم الدعاء
+            </p>
+            
+            <!-- Sponsorship text (small font at the bottom) -->
+            <div class="inline-block bg-gray-800 rounded-lg px-6 py-3 border border-gray-700">
+                <p class="text-xs text-gray-300 font-bold tracking-wide leading-relaxed">
+                    برعاية: شركة سكاي مريم للسياحة والسفر<br>
+                    <span class="text-gold-400 mt-1 block font-mono">07745557379</span>
+                </p>
+            </div>
+
+            <div class="mt-8 flex flex-col items-center justify-center">
+                <span class="text-xs text-gray-500 mb-2 font-bold">إجمالي عدد الزيارات</span>
+                <a href="https://www.hitwebcounter.com" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity">
                     <img src="https://hitwebcounter.com/counter/counter.php?page=17565313&style=0006&nbdigits=6&type=page&initCount=0" title="Free Counter" alt="web counter" border="0" class="rounded shadow-sm" />
                 </a>
             </div>
 
-            <p class="text-xs border-t border-gray-700 pt-4 mt-4">جميع الحقوق محفوظة &copy; 2026 | نسألكم الدعاء</p>
+            <p class="text-xs text-gray-600 pt-6 mt-6 border-t border-gray-800">
+                جميع الحقوق محفوظة &copy; 2024
+            </p>
         </div>
     </footer>
 
+    <!-- JavaScript for Generating Placeholders -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Inject Visa Placeholders (Generating 8 items to make 10 total)
+            const visaContainer = document.getElementById('visa-container');
+            for(let i=3; i<=10; i++) {
+                visaContainer.innerHTML += `
+                <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-700 mb-4">شركة العمرة [${i}]</h3>
+                        <div class="space-y-3 text-sm text-gray-500">
+                            <p class="flex items-start">
+                                <svg class="w-4 h-4 text-gray-300 ml-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span>[عنوان الشركة]</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+            // 2. Inject Drivers (10 items)
+            const driversContainer = document.getElementById('drivers-container');
+            for(let i=1; i<=10; i++) {
+                driversContainer.innerHTML += `
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 card-hover">
+                    <div class="w-full h-40 bg-gray-100 flex items-center justify-center text-gray-400 border-b border-gray-200">
+                        <svg class="w-12 h-12 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                    </div>
+                    <div class="p-5 space-y-2 text-sm">
+                        <h3 class="text-lg font-bold text-primary-900 border-b border-gray-100 pb-2 mb-3">
+                            اسم السائق الثلاثي [${i}]
+                        </h3>
+                        <p><span class="font-bold text-gray-500">النوع:</span> جي إم سي يوكن</p>
+                        <p><span class="font-bold text-gray-500">اللون:</span> أبيض</p>
+                        <p><span class="font-bold text-gray-500">الرقم:</span> 12345 بغداد</p>
+                        <p class="pt-2"><a href="tel:0700000000" class="text-primary-600 font-bold hover:underline flex items-center" dir="ltr"><svg class="w-4 h-4 mr-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> 0700 000 0000</a></p>
+                    </div>
+                </div>`;
+            }
+
+            // 3. Inject Hotels (10 items)
+            const hotelsContainer = document.getElementById('hotels-container');
+            let starsSvg = '<div class="flex text-gold-500 mb-3">';
+            for(let j=0; j<4; j++) {
+                starsSvg += '<svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+            }
+            starsSvg += '</div>';
+
+            for(let i=1; i<=10; i++) {
+                hotelsContainer.innerHTML += `
+                <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
+                    <h3 class="text-xl font-bold text-primary-900 mb-1">اسم الفندق [${i}]</h3>
+                    ${starsSvg}
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <p class="flex items-start mb-2"><svg class="w-4 h-4 text-gray-400 ml-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>المنطقة المركزية، مكة</p>
+                        <p><span class="font-bold text-gray-500">الكراج:</span> مدفوع (50 ريال)</p>
+                        <div class="pt-3 mt-3 border-t border-gray-100">
+                            <p><a href="tel:+966000000" class="text-primary-600 font-bold hover:underline flex items-center" dir="ltr"><svg class="w-4 h-4 mr-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> +966 00 000 0000</a></p>
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+            // 4. Inject Gas Stations (10 items)
+            const gasContainer = document.getElementById('gas-container');
+            for(let i=1; i<=10; i++) {
+                gasContainer.innerHTML += `
+                <div class="bg-white rounded-xl p-6 border-r-4 border-primary-600 shadow-sm card-hover">
+                    <h3 class="text-lg font-bold text-primary-900 mb-3 flex items-center">
+                        <svg class="w-5 h-5 text-gray-400 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        محطة طريق السلام [${i}]
+                    </h3>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <p><span class="font-bold text-gray-500">الخدمات:</span> مسجد، سوبر ماركت، دورات مياه</p>
+                        <p><span class="font-bold text-gray-500">الوقود:</span> بنزين 91 / ديزل</p>
+                    </div>
+                </div>`;
+            }
+
+            // 5. Inject Repair Shops (5 items)
+            const repairContainer = document.getElementById('repair-container');
+            for(let i=1; i<=5; i++) {
+                repairContainer.innerHTML += `
+                <div class="bg-gray-50 rounded-lg p-5 border border-gray-200 shadow-sm flex justify-between items-center">
+                    <div>
+                        <h3 class="text-md font-bold text-primary-900 mb-1">ورشة صيانة وميكانيك [${i}]</h3>
+                        <p class="text-xs text-gray-500">خدمة طرق سريعة</p>
+                    </div>
+                    <a href="tel:0500000000" class="bg-primary-100 text-primary-700 p-2 rounded-full hover:bg-primary-200 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </a>
+                </div>`;
+            }
+
+            // 6. Inject Dates Shops (5 items)
+            const datesContainer = document.getElementById('dates-container');
+            for(let i=1; i<=5; i++) {
+                datesContainer.innerHTML += `
+                <div class="bg-amber-50 rounded-lg p-5 border border-amber-100 shadow-sm flex justify-between items-center">
+                    <div>
+                        <h3 class="text-md font-bold text-gold-600 mb-1">تمور وعجوة المدينة [${i}]</h3>
+                        <p class="text-xs text-gray-500">تجهيز هدايا المعتمرين</p>
+                    </div>
+                    <a href="tel:0500000000" class="bg-gold-100 text-gold-700 p-2 rounded-full hover:bg-gold-200 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </a>
+                </div>`;
+            }
+        });
+    </script>
 </body>
 </html>
