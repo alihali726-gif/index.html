@@ -295,51 +295,92 @@
             border-radius: 20px;
         }
 
-        /* تنسيق قسم الاقتراحات الجديد */
+        /* تنسيق استمارة الاقتراحات المدمجة */
         .suggest-section {
-            background: linear-gradient(135deg, #e0f2fe 0%, #d1fae5 100%);
+            background: #ffffff;
             border-radius: 16px;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 40px;
             margin: 60px auto 20px;
-            border: 2px dashed var(--umrah-green);
+            border: 1px solid #e0f2fe;
+            border-top: 5px solid var(--sky-blue);
             max-width: 800px;
-            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.1);
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.05);
         }
         
         .suggest-title {
             color: var(--sky-blue);
             font-size: 1.8em;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            text-align: center;
         }
         
         .suggest-text {
             font-size: 1.1em;
-            color: var(--text-color);
-            margin-bottom: 25px;
+            color: #64748b;
+            margin-bottom: 30px;
             font-weight: 600;
-            line-height: 1.6;
+            text-align: center;
         }
         
-        .suggest-btn {
-            display: inline-block;
-            background-color: var(--umrah-green);
+        .custom-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: right;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 800;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            background-color: #f8fafc;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+            background-color: #ffffff;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--umrah-green) 100%);
             color: white;
-            padding: 12px 35px;
+            padding: 15px;
+            border: none;
             border-radius: 8px;
             font-size: 1.2em;
             font-weight: 800;
-            text-decoration: none;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+            margin-top: 10px;
         }
         
-        .suggest-btn:hover {
+        .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
-            color: white;
-            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
         }
 
         footer {
@@ -539,133 +580,76 @@
         <!-- قسم أرقام الطوارئ -->
         <h2 id="emergency" class="section-title">أرقام الطوارئ في السعودية</h2>
         <div class="grid">
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">الرقم الموحد للطوارئ</h3>
-                </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">الهاتف:</span>
-                        <span class="info-value">
-                            <a href="tel:911" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">911</a>
-                        </span>
-                    </div>
-                    <div class="info-row" style="margin-top:10px; border-top: 1px dashed #e0f2fe; padding-top: 10px;">
-                        <span class="info-label">ملاحظة:</span>
-                        <span class="info-value">يعمل في مكة المكرمة والرياض والمنطقة الشرقية، ويشمل كافة الحالات الطارئة.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">أمن الطرق</h3>
-                </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">الهاتف:</span>
-                        <span class="info-value">
-                            <a href="tel:996" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">996</a>
-                        </span>
-                    </div>
-                    <div class="info-row" style="margin-top:10px; border-top: 1px dashed #e0f2fe; padding-top: 10px;">
-                        <span class="info-label">ملاحظة:</span>
-                        <span class="info-value">للمساعدة والحوادث على الطرق السريعة خارج المدن.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">الإسعاف (الهلال الأحمر)</h3>
-                </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">الهاتف:</span>
-                        <span class="info-value">
-                            <a href="tel:997" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">997</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">المرور</h3>
-                </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">الهاتف:</span>
-                        <span class="info-value">
-                            <a href="tel:993" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">993</a>
-                        </span>
-                    </div>
-                    <div class="info-row" style="margin-top:10px; border-top: 1px dashed #e0f2fe; padding-top: 10px;">
-                        <span class="info-label">ملاحظة:</span>
-                        <span class="info-value">للتبليغ عن الحوادث المرورية داخل المدن.</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">نجم (الحوادث المرورية)</h3>
-                </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">الهاتف:</span>
-                        <span class="info-value">
-                            <a href="tel:19992" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">19992</a>
-                        </span>
-                    </div>
-                    <div class="info-row" style="margin-top:10px; border-top: 1px dashed #e0f2fe; padding-top: 10px;">
-                        <span class="info-label">ملاحظة:</span>
-                        <span class="info-value">تباشر الحوادث التي لا يوجد فيها إصابات وبوجود تأمين ساري المفعول لإحدى السيارات.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">الشرطة</h3>
-                </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">الهاتف:</span>
-                        <span class="info-value">
-                            <a href="tel:999" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">999</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">الدفاع المدني</h3>
-                </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">الهاتف:</span>
-                        <span class="info-value">
-                            <a href="tel:998" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">998</a>
-                        </span>
-                    </div>
-                    <div class="info-row" style="margin-top:10px; border-top: 1px dashed #e0f2fe; padding-top: 10px;">
-                        <span class="info-label">ملاحظة:</span>
-                        <span class="info-value">لحالات الحرائق والإنقاذ.</span>
-                    </div>
-                </div>
-            </div>
+            <div class="card"><div class="card-header"><h3 class="card-title">الرقم الموحد للطوارئ</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:911" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">911</a></span></div><div class="info-row" style="margin-top:10px; border-top: 1px dashed #e0f2fe; padding-top: 10px;"><span class="info-label">ملاحظة:</span><span class="info-value">يعمل في مكة والرياض والشرقية لكافة الحالات.</span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">أمن الطرق</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:996" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">996</a></span></div><div class="info-row" style="margin-top:10px; border-top: 1px dashed #e0f2fe; padding-top: 10px;"><span class="info-label">ملاحظة:</span><span class="info-value">للمساعدة والحوادث على الطرق السريعة خارج المدن.</span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">الإسعاف</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:997" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">997</a></span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">المرور</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:993" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">993</a></span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">الشرطة</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:999" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">999</a></span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">الدفاع المدني</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:998" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">998</a></span></div></div></div>
         </div>
 
-        <!-- قسم شاركنا تجربتك (Google Forms) -->
+        <!-- قسم الاستمارة المدمجة -->
         <div id="suggest" class="suggest-section">
             <h2 class="suggest-title">هل لديك اقتراح لمكان مميز؟</h2>
-            <p class="suggest-text">إذا كنت تعرف فندقاً، مطعماً، أو محطة استراحة ممتازة وموثوقة، شاركنا تفاصيلها وسنقوم بمراجعتها وإضافتها للدليل لخدمة المعتمرين.</p>
-            <a href="[ضع_رابط_جوجل_فورم_هنا]" target="_blank" class="suggest-btn">
-                اقترح مكاناً جديداً
-            </a>
+            <p class="suggest-text">شاركنا تفاصيل أي فندق، مطعم، أو محطة استراحة جربتها لتتم إضافتها للدليل بعد تدقيقها.</p>
+            
+            <form action="https://formsubmit.co/alihali726@gmail.com" method="POST" class="custom-form">
+                
+                <input type="hidden" name="_subject" value="اقتراح مكان جديد - دليل المعتمر العراقي">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <label>نوع المكان المقترح *</label>
+                    <select name="نوع_المكان" required>
+                        <option value="">اختر نوع المكان...</option>
+                        <option value="فندق / شقق مفروشة">فندق / شقق مفروشة</option>
+                        <option value="مطعم / كافيه">مطعم / كافيه</option>
+                        <option value="محطة وقود / استراحة">محطة وقود / استراحة على الطريق</option>
+                        <option value="ورشة صيانة سيارات">ورشة صيانة سيارات (صناعية)</option>
+                        <option value="أسواق / هدايا">أسواق / تمور / هدايا</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>اسم المكان المقترح *</label>
+                    <input type="text" name="اسم_المكان" required placeholder="مثال: مطعم الشلال، فندق برج الوطن...">
+                </div>
+
+                <div class="form-group">
+                    <label>المدينة / الموقع *</label>
+                    <select name="المدينة" required>
+                        <option value="">اختر الموقع...</option>
+                        <option value="مكة المكرمة">مكة المكرمة</option>
+                        <option value="المدينة المنورة">المدينة المنورة</option>
+                        <option value="الطريق البري (عرعر، سكاكا، حائل)">الطريق البري (عرعر، سكاكا، حائل)</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>رابط المكان على خرائط جوجل *</label>
+                    <input type="url" name="رابط_الخرائط" required placeholder="انسخ الرابط من خرائط جوجل والصقه هنا (يبدأ بـ https://)">
+                </div>
+
+                <div class="form-group">
+                    <label>رقم هاتف المكان (اختياري)</label>
+                    <input type="text" name="رقم_الهاتف" placeholder="إن وجد...">
+                </div>
+
+                <div class="form-group">
+                    <label>لماذا تقترح هذا المكان؟ *</label>
+                    <textarea name="سبب_الاقتراح" rows="3" required placeholder="اذكر تجربتك بصراحة.. (النظافة، السعر، القرب من الحرم...)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>اسمك الكريم (اختياري)</label>
+                    <input type="text" name="اسم_المرسل" placeholder="لنقوم بشكرك على مساهمتك في خدمة المعتمرين">
+                </div>
+
+                <button type="submit" class="submit-btn">إرسال الاقتراح</button>
+            </form>
         </div>
 
     </div>
