@@ -7,11 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --sky-blue: #0284c7;      /* أزرق سماوي زاهي */
-            --umrah-green: #059669;   /* أخضر زمردي مشرق */
-            --gold-accent: #f59e0b;   /* ذهبي دافئ */
-            --bg-color: #f0f9ff;      /* أبيض مائل للسماوي فاتح جداً يريح العين */
-            --text-color: #1e293b;    /* رمادي داكن للنصوص لسهولة القراءة */
+            --sky-blue: #0284c7;
+            --umrah-green: #059669;
+            --gold-accent: #f59e0b;
+            --bg-color: #f0f9ff;
+            --text-color: #1e293b;
             --card-bg: #ffffff;
         }
 
@@ -24,7 +24,6 @@
             line-height: 1.6;
         }
 
-        /* الهيدر الرئيسي بألوان زاهية متدرجة */
         header {
             background: linear-gradient(135deg, var(--sky-blue) 0%, var(--umrah-green) 100%);
             color: white;
@@ -43,7 +42,6 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* شريط التنقل (Navbar) */
         .navbar {
             background-color: white;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -122,7 +120,6 @@
             border-radius: 2px;
         }
 
-        /* التصميم النظيف والملون لبطاقات شركات التأشيرات */
         .visa-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -194,7 +191,6 @@
             margin-top: 2px;
         }
 
-        /* نظام البطاقات العادية لباقي الأقسام */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -268,7 +264,6 @@
             display: inline-block;
         }
 
-        /* قسم المتطلبات */
         .req-list {
             list-style: none;
             padding: 0;
@@ -299,7 +294,6 @@
             border-radius: 20px;
         }
 
-        /* الفوتر */
         footer {
             background: linear-gradient(135deg, var(--text-color) 0%, #0f172a 100%);
             color: #cbd5e1;
@@ -341,20 +335,16 @@
 </head>
 <body>
 
-    <!-- الهيدر -->
     <header>
         <h1>دليل المعتمر العراقي</h1>
     </header>
 
-    <!-- شريط التنقل -->
+    <!-- شريط التنقل محدث يحتوي على الأقسام الحقيقية فقط -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#visa" class="nav-link">مصدري التأشيرات</a>
             <a href="#requirements" class="nav-link">المتطلبات</a>
-            <a href="#drivers" class="nav-link">سواق الخط</a>
-            <a href="#hotels" class="nav-link">فنادق</a>
-            <a href="#stations" class="nav-link">محطات الوقود</a>
-            <a href="#services" class="nav-link">خدمات أخرى</a>
+            <a href="#restaurants" class="nav-link">المطاعم</a>
         </div>
     </nav>
 
@@ -418,7 +408,6 @@
                 </div>
             </div>
             
-            <div id="visa-list" style="display: contents;"></div>
         </div>
 
         <!-- قسم المتطلبات -->
@@ -445,30 +434,36 @@
             </li>
         </ul>
 
-        <!-- قسم سواق الخط -->
-        <h2 id="drivers" class="section-title">سائقي سيارات الخط (العراق - السعودية)</h2>
-        <div class="grid" id="drivers-list"></div>
+        <!-- قسم المطاعم (جديد) -->
+        <h2 id="restaurants" class="section-title">المطاعم الموصى بها</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">مطعم الشلال الشامي</h3>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-label">العنوان:</span>
+                        <span class="info-value">المدينة المنورة</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">الموقع:</span>
+                        <span class="info-value">
+                            <!-- رابط الخرائط باستخدام الإحداثيات الدقيقة -->
+                            <a href="https://www.google.com/maps/place/24%C2%B027'12.3%22N+39%C2%B037'25.4%22E" target="_blank">فتح في خرائط جوجل</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <!-- قسم الفنادق -->
-        <h2 id="hotels" class="section-title">فنادق مكة والمدينة</h2>
-        <div class="grid" id="hotels-list"></div>
-
-        <!-- قسم محطات الوقود -->
-        <h2 id="stations" class="section-title">محطات الوقود على الطريق</h2>
-        <div class="grid" id="stations-list"></div>
-
-        <!-- قسم خدمات أخرى (تصليح وتمور) -->
-        <h2 id="services" class="section-title">خدمات عامة (تصليح سيارات وتمور)</h2>
-        <div class="grid" id="services-list"></div>
     </div>
 
-    <!-- الفوتر -->
     <footer>
         <div class="sponsor-text">برعاية شركة سكاي مريم للسفر والسياحة</div>
         <div class="sponsor-phone">+964 774 555 7379</div>
         <p>تم إعداد هذا الدليل لخدمة المعتمرين العراقيين | جميع الحقوق محفوظة</p>
         
-        <!-- عداد الزوار -->
         <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
             <p style="margin-bottom: 5px; font-size: 0.9em; color: #94a3b8;">إحصائيات الزيارة</p>
             <div class="counter-box">
@@ -478,95 +473,7 @@
     </footer>
 
     <script>
-        function createVisaCard(num) {
-            return `
-                <div class="visa-card">
-                    <div class="visa-header">
-                        <h3 class="visa-title">نموذج شركة ${num}</h3>
-                    </div>
-                    <div class="visa-details">
-                        <div class="visa-info-item">
-                            <svg class="visa-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                            <span>عنوان الشركة أو موقعها</span>
-                        </div>
-                        <div class="visa-info-item">
-                            <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                            <span class="phone-number">07XXXXXXXXX</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function createDriverCard(num) {
-            return `
-                <div class="card">
-                    <div class="card-header"><h3 class="card-title">السائق ${num} (الاسم الثلاثي)</h3></div>
-                    <div class="card-body">
-                        <div style="width:100%; height:150px; background-color:#e0f2fe; border-radius:8px; margin-bottom:15px; display:flex; align-items:center; justify-content:center; color:var(--sky-blue); font-weight:800; border: 1px dashed #bae6fd;">صورة السيارة</div>
-                        <div class="info-row"><span class="info-label">السيارة:</span><span class="info-value">النوع - اللون</span></div>
-                        <div class="info-row"><span class="info-label">الرقم:</span><span class="info-value">12345 المحافظة</span></div>
-                        <div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value">07XXXXXXXXX</span></div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function createHotelCard(num) {
-            const starIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold-accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
-            return `
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">فندق نموذج ${num}</h3>
-                        <div style="margin-top:5px; display:flex; gap:2px;">${starIcon}${starIcon}${starIcon}${starIcon}</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="info-row"><span class="info-label">العنوان:</span><span class="info-value"><a href="#">رابط خرائط جوجل</a></span></div>
-                        <div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value">00966XXXXXXX</span></div>
-                        <div class="info-row"><span class="info-label">المواقف:</span><span class="info-value">متوفر (مجاني/مأجور)</span></div>
-                        <div class="info-row" style="margin-top:10px; padding-top:10px; border-top:1px dashed #e0f2fe;"><span class="info-label">ملاحظات:</span><span class="info-value" style="font-size:0.85rem;">تفاصيل إضافية عن البعد عن الحرم.</span></div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function createStationCard(num) {
-            return `
-                <div class="card">
-                    <div class="card-header"><h3 class="card-title">محطة وقود ${num}</h3></div>
-                    <div class="card-body">
-                        <div class="info-row"><span class="info-label">العنوان:</span><span class="info-value">موقع المحطة على الطريق</span></div>
-                        <div class="info-row"><span class="info-label">الوقود:</span><span class="info-value">بنزين / ديزل</span></div>
-                        <div class="info-row"><span class="info-label">الخدمات:</span><span class="info-value">مسجد، مطعم، بقالة</span></div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function createServiceCard(num, type) {
-            return `
-                <div class="card">
-                    <div class="card-header"><h3 class="card-title">${type} ${num}</h3></div>
-                    <div class="card-body">
-                        <div class="info-row"><span class="info-label">العنوان:</span><span class="info-value">وصف الموقع</span></div>
-                        <div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value">الرقم</span></div>
-                        <div class="info-row"><span class="info-label">ملاحظات:</span><span class="info-value">تفاصيل إضافية</span></div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // توليد النماذج
-        document.getElementById('visa-list').innerHTML = Array.from({length: 7}, (_, i) => createVisaCard(i + 1)).join('');
-        document.getElementById('drivers-list').innerHTML = Array.from({length: 10}, (_, i) => createDriverCard(i + 1)).join('');
-        document.getElementById('hotels-list').innerHTML = Array.from({length: 4}, (_, i) => createHotelCard(i + 1)).join('');
-        document.getElementById('stations-list').innerHTML = Array.from({length: 4}, (_, i) => createStationCard(i + 1)).join('');
-        
-        let servicesHtml = Array.from({length: 3}, (_, i) => createServiceCard(i + 1, 'ورشة تصليح سيارات')).join('');
-        servicesHtml += Array.from({length: 3}, (_, i) => createServiceCard(i + 1, 'محل بيع تمور')).join('');
-        document.getElementById('services-list').innerHTML = servicesHtml;
-
-        // العداد
+        // سكريبت العداد فقط، تم مسح كل سكريبتات التوليد الوهمي
         let count = localStorage.getItem('site_visitors') || 142;
         count = parseInt(count) + Math.floor(Math.random() * 3);
         localStorage.setItem('site_visitors', count);
