@@ -339,7 +339,6 @@
         <h1>دليل المعتمر العراقي</h1>
     </header>
 
-    <!-- شريط التنقل محدث يحتوي على الأقسام الحقيقية فقط -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#visa" class="nav-link">مصدري التأشيرات</a>
@@ -413,8 +412,9 @@
         <!-- قسم المتطلبات -->
         <h2 id="requirements" class="section-title">متطلبات الدخول البري للسعودية</h2>
         <ul class="req-list" style="margin-bottom: 50px;">
-            <li class="req-item">
-                <span>تأمين للسيارة (يُدفع في الجانب السعودي)</span>
+            <li class="req-item" style="display: block;">
+                <div style="margin-bottom: 8px;">تأمين للسيارة (الجانب السعودي)</div>
+                <div style="font-size: 0.9em; color: #475569;">يفضل استخراجها قبل السفر من خلال <a href="https://manafith.com.sa/ar/welcome" target="_blank" style="text-decoration: underline;">هذا الرابط</a></div>
             </li>
             <li class="req-item">
                 <span>خروجية للسيارات العراقية (مغادرة)</span>
@@ -434,7 +434,7 @@
             </li>
         </ul>
 
-        <!-- قسم المطاعم (جديد) -->
+        <!-- قسم المطاعم -->
         <h2 id="restaurants" class="section-title">المطاعم الموصى بها</h2>
         <div class="grid">
             <div class="card">
@@ -449,7 +449,6 @@
                     <div class="info-row">
                         <span class="info-label">الموقع:</span>
                         <span class="info-value">
-                            <!-- رابط الخرائط باستخدام الإحداثيات الدقيقة -->
                             <a href="https://www.google.com/maps/place/24%C2%B027'12.3%22N+39%C2%B037'25.4%22E" target="_blank">فتح في خرائط جوجل</a>
                         </span>
                     </div>
@@ -473,7 +472,6 @@
     </footer>
 
     <script>
-        // سكريبت العداد فقط، تم مسح كل سكريبتات التوليد الوهمي
         let count = localStorage.getItem('site_visitors') || 142;
         count = parseInt(count) + Math.floor(Math.random() * 3);
         localStorage.setItem('site_visitors', count);
