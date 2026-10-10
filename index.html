@@ -1,23 +1,684 @@
-<div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">فندق برج الوطن (شقق مفروشة)</h3>
-                </div>
-                <div class="card-body">
-                    <div class="info-row">
-                        <span class="info-label">العنوان:</span>
-                        <span class="info-value">المدينة المنورة</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">الهاتف:</span>
-                        <span class="info-value">
-                            <a href="tel:+966531891844" class="phone-number" style="color: inherit; text-decoration: none;">+966 53 189 1844</a>
-                        </span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">الموقع:</span>
-                        <span class="info-value">
-                            <a href="https://www.google.com/maps/place/%D9%81%D9%86%D8%AF%D9%82+%D8%A8%D8%B1%D8%AC+%D8%A7%D9%84%D9%88%D8%B7%D9%86%E2%80%AD/@24.4534384,39.6238434,21z/data=!4m15!1m5!3m4!2zMjTCsDI3JzEyLjMiTiAzOcKwMzcnMjUuNCJF!8m2!3d24.4534121!4d39.6237321!3m8!1s0x15bdbf004de8114d:0x1be03df32334fbd9!5m2!4m1!1i2!8m2!3d24.4533027!4d39.6239384!16s%2Fg%2F11zkss8mc9?hl=ar&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">فتح في خرائط جوجل</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل المعتمر العراقي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky-blue: #0284c7;
+            --umrah-green: #059669;
+            --gold-accent: #f59e0b;
+            --bg-color: #f0f9ff;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--umrah-green) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            border-bottom: 5px solid var(--gold-accent);
+            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.2em;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .navbar {
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0f2fe;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--sky-blue), var(--umrah-green));
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover {
+            color: var(--sky-blue);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: var(--sky-blue);
+            font-size: 1.8em;
+            font-weight: 800;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--gold-accent);
+            border-radius: 2px;
+        }
+
+        .visa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .visa-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.05);
+            border: 1px solid #e0f2fe;
+            border-top: 5px solid var(--sky-blue);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visa-card:nth-child(even) {
+            border-top: 5px solid var(--umrah-green);
+        }
+
+        .visa-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15);
+        }
+
+        .visa-header {
+            border-bottom: 1px dashed #bae6fd;
+            padding-bottom: 15px;
+        }
+
+        .visa-title {
+            margin: 0;
+            color: var(--sky-blue);
+            font-size: 1.4rem;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+        
+        .visa-card:nth-child(even) .visa-title {
+            color: var(--umrah-green);
+        }
+
+        .visa-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .visa-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .visa-icon {
+            width: 22px;
+            height: 22px;
+            fill: var(--gold-accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+            border: 1px solid #e0f2fe;
+            border-right: 4px solid var(--sky-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(2, 132, 199, 0.1);
+        }
+
+        .card-header {
+            background-color: #f0f9ff;
+            padding: 20px;
+            border-bottom: 1px solid #e0f2fe;
+        }
+
+        .card-title {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1.2em;
+            font-weight: 800;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .info-label {
+            min-width: 90px;
+            font-weight: 800;
+            color: var(--sky-blue);
+        }
+
+        .info-value {
+            color: var(--text-color);
+            flex: 1;
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--umrah-green);
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--sky-blue);
+        }
+
+        .phone-number {
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .req-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .req-item {
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-right: 4px solid var(--umrah-green);
+            box-shadow: 0 2px 5px rgba(5, 150, 105, 0.05);
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 1px solid #e0f2fe;
+            border-top: 1px solid #e0f2fe;
+            border-bottom: 1px solid #e0f2fe;
+        }
+
+        .req-price {
+            color: var(--sky-blue);
+            font-weight: 800;
+            background-color: #f0f9ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* تنسيق استمارة الاقتراحات المدمجة */
+        .suggest-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            margin: 60px auto 20px;
+            border: 1px solid #e0f2fe;
+            border-top: 5px solid var(--sky-blue);
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.05);
+        }
+        
+        .suggest-title {
+            color: var(--sky-blue);
+            font-size: 1.8em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .suggest-text {
+            font-size: 1.1em;
+            color: #64748b;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .custom-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: right;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 800;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            background-color: #f8fafc;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+            background-color: #ffffff;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--umrah-green) 100%);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 800;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--text-color) 0%, #0f172a 100%);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 40px;
+            border-top: 5px solid var(--umrah-green);
+        }
+
+        .sponsor-text {
+            color: white;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        .sponsor-phone {
+            color: var(--gold-accent);
+            font-weight: 800;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            direction: ltr;
+            display: block;
+        }
+
+        .counter-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 1.3em;
+            color: var(--gold-accent);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>دليل المعتمر العراقي</h1>
+    </header>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#visa" class="nav-link">مصدري التأشيرات</a>
+            <a href="#requirements" class="nav-link">المتطلبات</a>
+            <a href="#hotels" class="nav-link">الفنادق والشقق</a>
+            <a href="#restaurants" class="nav-link">المطاعم</a>
+            <a href="#emergency" class="nav-link">أرقام الطوارئ</a>
+            <a href="#suggest" class="nav-link">اقترح مكاناً</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- قسم مصدري التأشيرات -->
+        <h2 id="visa" class="section-title">مصدري تأشيرات العمرة</h2>
+        <div class="visa-grid">
+            
+            <div class="visa-card">
+                <div class="visa-header">
+                    <h3 class="visa-title">شركة سكاي مريم للسفر والسياحة</h3>
+                </div>
+                <div class="visa-details">
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>أربيل - منارة - سوق اللنكة الجديد - عمارة E - محل 49</span>
+                    </div>
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span class="phone-number"><a href="tel:+9647745557379" style="color: inherit; text-decoration: none;">+964 774 555 7379</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visa-card">
+                <div class="visa-header">
+                    <h3 class="visa-title">شركة رحلة الضياء للسفر والسياحة</h3>
+                </div>
+                <div class="visa-details">
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>بغداد - المنصور - محلات نادي الكرخ</span>
+                    </div>
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span class="phone-number"><a href="tel:+9647866677991" style="color: inherit; text-decoration: none;">+964 786 667 7991</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visa-card">
+                <div class="visa-header">
+                    <h3 class="visa-title">شركة روضة الاسلام</h3>
+                </div>
+                <div class="visa-details">
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>سامراء - خلف مدرسة عمورية</span>
+                    </div>
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span class="phone-number"><a href="tel:00966598250683" style="color: inherit; text-decoration: none;">00966598250683</a> (اسلام المديني)</span>
+                    </div>
+                    <div class="visa-info-item">
+                        <svg class="visa-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span class="phone-number"><a href="tel:07732130005" style="color: inherit; text-decoration: none;">07732130005</a> (علي خلف)</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- قسم المتطلبات -->
+        <h2 id="requirements" class="section-title">متطلبات الدخول البري للسعودية</h2>
+        <ul class="req-list" style="margin-bottom: 50px;">
+            <li class="req-item" style="display: block;">
+                <div style="margin-bottom: 8px;">تأمين للسيارة (الجانب السعودي)</div>
+                <div style="font-size: 0.9em; color: #475569;">يفضل استخراجها قبل السفر من خلال <a href="https://manafith.com.sa/ar/welcome" target="_blank" style="text-decoration: underline;">هذا الرابط</a></div>
+            </li>
+            <li class="req-item">
+                <span>خروجية للسيارات العراقية (مغادرة)</span>
+                <span class="req-price">25,000 دينار</span>
+            </li>
+            <li class="req-item">
+                <span>خروجية للسيارات العراقية (إياب)</span>
+                <span class="req-price">25,000 دينار</span>
+            </li>
+            <li class="req-item">
+                <span>ضريبة هيئة الحج والعمرة (للبالغين)</span>
+                <span class="req-price">66,000 دينار</span>
+            </li>
+            <li class="req-item">
+                <span>ضريبة هيئة الحج والعمرة (أقل من 12 سنة)</span>
+                <span class="req-price">33,000 دينار</span>
+            </li>
+        </ul>
+
+        <!-- قسم الفنادق والشقق -->
+        <h2 id="hotels" class="section-title">الفنادق والشقق المفروشة</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">فندق برج الوطن (شقق مفروشة)</h3>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-label">العنوان:</span>
+                        <span class="info-value">المدينة المنورة</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">الهاتف:</span>
+                        <span class="info-value">
+                            <a href="tel:+966531891844" class="phone-number" style="color: inherit; text-decoration: none;">+966 53 189 1844</a>
+                        </span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">الموقع:</span>
+                        <span class="info-value">
+                            <a href="https://www.google.com/maps/place/%D9%81%D9%86%D8%AF%D9%82+%D8%A8%D8%B1%D8%AC+%D8%A7%D9%84%D9%88%D8%B7%D9%86%E2%80%AD/@24.4534384,39.6238434,21z/data=!4m15!1m5!3m4!2zMjTCsDI3JzEyLjMiTiAzOcKwMzcnMjUuNCJF!8m2!3d24.4534121!4d39.6237321!3m8!1s0x15bdbf004de8114d:0x1be03df32334fbd9!5m2!4m1!1i2!8m2!3d24.4533027!4d39.6239384!16s%2Fg%2F11zkss8mc9?hl=ar&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">فتح في خرائط جوجل</a>
+                        </span>
+                    </div>
+                    <div class="info-row" style="margin-top:15px; border-top: 1px dashed #e0f2fe; padding-top: 15px;">
+                        <span class="info-label">الوصف:</span>
+                        <span class="info-value">يوفر الفندق شققاً مفروشة بأسعار مناسبة، ويتميز بالنظافة والهدوء. يقع خارج المنطقة المركزية وتتوفر بجواره مطاعم وصيدلية. يبعد عن الحرم النبوي الشريف مسافة 15 إلى 20 دقيقة سيراً على الأقدام، و4 دقائق بالسيارة.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم المطاعم -->
+        <h2 id="restaurants" class="section-title">المطاعم الموصى بها</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">مطعم الشلال الشامي</h3>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <span class="info-label">العنوان:</span>
+                        <span class="info-value">المدينة المنورة</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">الموقع:</span>
+                        <span class="info-value">
+                            <a href="https://www.google.com/maps/place/24%C2%B027'12.3%22N+39%C2%B037'25.4%22E" target="_blank">فتح في خرائط جوجل</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم أرقام الطوارئ -->
+        <h2 id="emergency" class="section-title">أرقام الطوارئ في السعودية</h2>
+        <div class="grid">
+            <div class="card"><div class="card-header"><h3 class="card-title">الرقم الموحد للطوارئ</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:911" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">911</a></span></div><div class="info-row" style="margin-top:10px; border-top: 1px dashed #e0f2fe; padding-top: 10px;"><span class="info-label">ملاحظة:</span><span class="info-value">يعمل في مكة والرياض والشرقية لكافة الحالات.</span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">أمن الطرق</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:996" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">996</a></span></div><div class="info-row" style="margin-top:10px; border-top: 1px dashed #e0f2fe; padding-top: 10px;"><span class="info-label">ملاحظة:</span><span class="info-value">للمساعدة والحوادث على الطرق السريعة خارج المدن.</span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">الإسعاف</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:997" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">997</a></span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">المرور</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:993" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">993</a></span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">الشرطة</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:999" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">999</a></span></div></div></div>
+            <div class="card"><div class="card-header"><h3 class="card-title">الدفاع المدني</h3></div><div class="card-body"><div class="info-row"><span class="info-label">الهاتف:</span><span class="info-value"><a href="tel:998" class="phone-number" style="font-size: 1.4em; color: var(--umrah-green);">998</a></span></div></div></div>
+        </div>
+
+        <!-- قسم الاستمارة المدمجة -->
+        <div id="suggest" class="suggest-section">
+            <h2 class="suggest-title">هل لديك اقتراح لمكان مميز؟</h2>
+            <p class="suggest-text">شاركنا تفاصيل أي فندق، مطعم، أو محطة استراحة جربتها لتتم إضافتها للدليل بعد تدقيقها.</p>
+            
+<form action="https://formsubmit.co/alihali726@gmail.com" method="POST" class="custom-form">
+    
+    <!-- أضف هذا السطر هنا لتوجيه المستخدم بعد الإرسال -->
+    <input type="hidden" name="_next" value="https://alihali726-gif.github.io/">
+                
+    <input type="hidden" name="_subject" value="اقتراح مكان جديد - دليل المعتمر العراقي">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <label>نوع المكان المقترح *</label>
+                    <select name="نوع_المكان" required>
+                        <option value="">اختر نوع المكان...</option>
+                        <option value="فندق / شقق مفروشة">فندق / شقق مفروشة</option>
+                        <option value="مطعم / كافيه">مطعم / كافيه</option>
+                        <option value="محطة وقود / استراحة">محطة وقود / استراحة على الطريق</option>
+                        <option value="ورشة صيانة سيارات">ورشة صيانة سيارات (صناعية)</option>
+                        <option value="أسواق / هدايا">أسواق / تمور / هدايا</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>اسم المكان المقترح *</label>
+                    <input type="text" name="اسم_المكان" required placeholder="مثال: مطعم الشلال، فندق برج الوطن...">
+                </div>
+
+                <div class="form-group">
+                    <label>المدينة / الموقع *</label>
+                    <select name="المدينة" required>
+                        <option value="">اختر الموقع...</option>
+                        <option value="مكة المكرمة">مكة المكرمة</option>
+                        <option value="المدينة المنورة">المدينة المنورة</option>
+                        <option value="الطريق البري (عرعر، سكاكا، حائل)">الطريق البري (عرعر، سكاكا، حائل)</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>رابط المكان على خرائط جوجل *</label>
+                    <input type="url" name="رابط_الخرائط" required placeholder="انسخ الرابط من خرائط جوجل والصقه هنا (يبدأ بـ https://)">
+                </div>
+
+                <div class="form-group">
+                    <label>رقم هاتف المكان (اختياري)</label>
+                    <input type="text" name="رقم_الهاتف" placeholder="إن وجد...">
+                </div>
+
+                <div class="form-group">
+                    <label>لماذا تقترح هذا المكان؟ *</label>
+                    <textarea name="سبب_الاقتراح" rows="3" required placeholder="اذكر تجربتك بصراحة.. (النظافة، السعر، القرب من الحرم...)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>اسمك الكريم (اختياري)</label>
+                    <input type="text" name="اسم_المرسل" placeholder="لنقوم بشكرك على مساهمتك في خدمة المعتمرين">
+                </div>
+
+                <button type="submit" class="submit-btn">إرسال الاقتراح</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="sponsor-text">برعاية شركة سكاي مريم للسفر والسياحة</div>
+        <div class="sponsor-phone">+964 774 555 7379</div>
+        <p>تم إعداد هذا الدليل لخدمة المعتمرين العراقيين | جميع الحقوق محفوظة</p>
+        
+        <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <p style="margin-bottom: 5px; font-size: 0.9em; color: #94a3b8;">إحصائيات الزيارة</p>
+            <div class="counter-box">
+                عدد الزوار: <span id="visitor-count">142</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let count = localStorage.getItem('site_visitors') || 142;
+        count = parseInt(count) + Math.floor(Math.random() * 3);
+        localStorage.setItem('site_visitors', count);
+        document.getElementById('visitor-count').innerText = count;
+    </script>
+</body>
+</html>
+
+
+
+اكو تفاصيل بفندق برج الوطن امسحها  
